@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from bottle import route, run
+from bottle import route, run, abort
 
 from nckvsclient import KVSClient
 
@@ -14,6 +14,11 @@ def get_client(datatype):
         _clients[datatype] = client
 
     return _clients[datatype]
+
+
+@route('/favicon.ico')
+def favicon():
+    return abort(404)
 
 
 @route('/:datatype')
