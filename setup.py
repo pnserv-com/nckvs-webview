@@ -42,4 +42,8 @@ setup(name='nckvs-webview',
       zip_safe=False,
       dependency_links=dependency_links,
       install_requires=requires,
-      tests_require=tests_require)
+      tests_require=tests_require,
+      entry_points="""\
+      [console_scripts]
+      nckvs-webview = nckvswebview:main
+      """)
