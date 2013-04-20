@@ -42,6 +42,13 @@ def favicon():
     return abort(404)
 
 
+@route('/:datatype', method='DELETE')
+def remove_all(datatype):
+    client = get_client(datatype)
+    ids = [x['id'] for x in client.search([])['datalist']]
+    return client.delete(ids)
+
+
 @route('/:datatype')
 def search(datatype):
     client = get_client(datatype)
